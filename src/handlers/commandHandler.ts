@@ -35,7 +35,7 @@ export async function loadCommands(client: Client): Promise<void> {
         console.log(`❌ Command ${file} is not in the correct format.`);
       }
     } catch (error) {
-      console.log(`❌ [ERREUR] Unable to load the command ${file} :`, error);
+      console.log(`❌ Unable to load the command ${file} :`, error);
     }
   }
 
