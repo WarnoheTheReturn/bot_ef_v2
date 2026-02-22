@@ -40,5 +40,5 @@ export async function loadCommands(client: Client): Promise<void> {
   }
 
   (client as any).commands = commands;
-  console.log(`ℹ️ ${commands.size} commands loaded !`);
+  console.log(`ℹ️  ${commands.size} commands loaded !`);
 }

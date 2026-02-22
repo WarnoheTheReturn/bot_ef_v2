@@ -36,9 +36,9 @@ export async function loadEvents(client: Client): Promise<void> {
         console.log(`❌ Event ${file} is not in the correct format.`);
       }
     } catch (error) {
-      console.log(`❌ [ERREUR] Unable to load the event ${file} :`, error);
+      console.log(`❌ Unable to load the event ${file} :`, error);
     }
   }
 
-  console.log(`ℹ️ ${loadedEvents} events loaded !`);
+  console.log(`ℹ️  ${loadedEvents} events loaded !`);
 }

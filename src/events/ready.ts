@@ -2,7 +2,7 @@ import { Client } from "discord.js";
 import { Event } from "../types";
 
 const event: Event = {
-  name: "ready",
+  name: "clientReady",
   once: true,
   async execute(client: Client) {
     console.log(`✅ Bot connected as ${client.user?.tag}`);
