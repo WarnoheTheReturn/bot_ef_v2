@@ -1,9 +1,9 @@
-import { Client, Collection } from "discord.js";
-import { Command } from "../types";
+import {Collection } from "discord.js";
+import { Bot, Command } from "../types";
 import * as path from "path";
 import * as fs from "fs";
 
-export async function loadCommands(client: Client): Promise<void> {
+export async function loadCommands(client: Bot): Promise<void> {
   const commands = new Collection<string, Command>();
   const commandsPath = path.join(__dirname, "..", "commands");
 
@@ -16,7 +16,7 @@ export async function loadCommands(client: Client): Promise<void> {
 
   if (files.length === 0) {
     console.log("⚠️ No commands were found");
-    (client as any).commands = commands; 
+    client.commands = commands; 
     return;
   }
 
@@ -39,6 +39,6 @@ export async function loadCommands(client: Client): Promise<void> {
     }
   }
 
-  (client as any).commands = commands;
+  client.commands = commands;
   console.log(`ℹ️  ${commands.size} commands loaded !`);
 }

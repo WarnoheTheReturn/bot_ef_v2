@@ -1,9 +1,8 @@
-import { Client } from "discord.js";
-import { Event } from "../types";
+import { Event, Bot } from "../types";
 import * as path from "path";
 import * as fs from "fs";
 
-export async function loadEvents(client: Client): Promise<void> {
+export async function loadEvents(client: Bot): Promise<void> {
   const eventsPath = path.join(__dirname, "..", "events");
   let loadedEvents = 0;
 

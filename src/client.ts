@@ -1,13 +1,10 @@
-import { Client, GatewayIntentBits, Collection } from "discord.js";
-import { Command } from "./types";
+import { GatewayIntentBits } from "discord.js";
+import { Bot } from "./types";
 
-export const client = new Client({
+export const client = new Bot({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
   ],
 });
-
-
-(client as any).commands = new Collection<string, Command>();
