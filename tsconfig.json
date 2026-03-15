@@ -42,6 +42,10 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+
+    // allow import without default
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   },
 
   "include": ["src/**/*"],
