@@ -6,13 +6,13 @@ import { fetchMember } from "../../utils/fetchMember";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("grade-manage-remove")
-    .setDescription("remove a grade to the database")
+    .setName("remove-rank")
+    .setDescription("Remove a rank from the database.")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setContexts(InteractionContextType.Guild)
     .addStringOption((option) => option
-        .setName("grade")
-        .setDescription("The grade to remove")
+        .setName("rank")
+        .setDescription("The rank to remove.")
         .setRequired(true)
         .setAutocomplete(true) 
     ) as SlashCommandBuilder,
@@ -46,7 +46,7 @@ const command: Command = {
   execute: async (interaction: ChatInputCommandInteraction, bot: Bot) => {
 
     const sent = await interaction.deferReply();
-    const gradeId = interaction.options.getString("grade") as string
+    const gradeId = interaction.options.getString("rank") as string
     const grade = interaction.guild?.roles.cache.get(gradeId) as Role;
 
 

@@ -21,12 +21,12 @@ import {robloxProfilPictureURL} from "../../utils/roblox";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("profil")
-    .setDescription("view a member's profile")
+    .setName("profile")
+    .setDescription("Get info about a specific user.")
     .setContexts(InteractionContextType.Guild)
     .addUserOption((option) => option
         .setName("user")
-        .setDescription("The user to view")
+        .setDescription("The user to retrieve information about.")
     ) as SlashCommandBuilder,
 
   execute: async (interaction: ChatInputCommandInteraction, bot: Bot) => {

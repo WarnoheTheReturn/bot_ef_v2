@@ -5,13 +5,13 @@ import { Bot } from "../../types";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("grade-user-promotion")
-    .setDescription("promote a member")
+    .setName("promote")
+    .setDescription("Promote a member.")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setContexts(InteractionContextType.Guild)
     .addUserOption((option) => option
         .setName("user")
-        .setDescription("The username of the user you want to promote")
+        .setDescription("The user you want to promote.")
         .setRequired(true)
     ) as SlashCommandBuilder,
 

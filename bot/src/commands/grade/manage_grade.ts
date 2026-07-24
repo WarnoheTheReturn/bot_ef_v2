@@ -6,19 +6,19 @@ import { fetchMember } from "../../utils/fetchMember";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("grade-manage-modify")
-    .setDescription("modify a grade")
+    .setName("rank-xp-edit")
+    .setDescription("Edit an individual rank's XP.")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setContexts(InteractionContextType.Guild)
     .addStringOption((option) => option
-        .setName("grade")
-        .setDescription("The grade to modify")
+        .setName("rank")
+        .setDescription("The rank you want to edit.")
         .setRequired(true)
         .setAutocomplete(true) 
     )
     .addNumberOption((option) => option
-      .setName("xp_amount")
-      .setDescription("The xp amount")
+      .setName("xp")
+      .setDescription("The amount of xp you want to set the rank at.")
       .setRequired(true)
     ) as SlashCommandBuilder,
 
@@ -51,8 +51,8 @@ const command: Command = {
   execute: async (interaction: ChatInputCommandInteraction, bot: Bot) => {
 
     const sent = await interaction.deferReply();
-    const gradeId = interaction.options.getString("grade") as string
-    const xpAmount = interaction.options.getNumber("xp_amount") as number;
+    const gradeId = interaction.options.getString("rank") as string
+    const xpAmount = interaction.options.getNumber("xp") as number;
 
     const gradeDb = await bot.db.tables.grades.getById(gradeId);
     if (!gradeDb) {

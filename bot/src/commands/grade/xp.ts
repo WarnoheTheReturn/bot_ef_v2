@@ -6,27 +6,27 @@ import { UsersModel } from "../../db/models/users"
 const command: Command = {
   data: new SlashCommandBuilder()
     .setName("xp")
-    .setDescription("xp command")
+    .setDescription("View or change a user’s xp.")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setContexts(InteractionContextType.Guild)
     .addUserOption((option) => option
         .setName("user")
-        .setDescription("The username of the user that you’d like to view / edit.")
+        .setDescription("The user that you’d like to view / edit.")
         .setRequired(true)
     )
     .addStringOption((option) => option
         .setName("action")
-        .setDescription("The action")
+        .setDescription("add / remove / set")
         .setRequired(true)
         .addChoices(
-            { name: "Add XP", value: "add" },
-            { name: "Remove XP", value: "remove" },
-            { name: "Set XP", value: "set" }
+            { name: "add", value: "add" },
+            { name: "remove", value: "remove" },
+            { name: "set", value: "set" }
         )
     ) 
     .addNumberOption((option) => option
-        .setName("amount")
-        .setDescription("Amount of xp")
+        .setName("value")
+        .setDescription("Amount of xp.")
         .setRequired(true)
     ) as SlashCommandBuilder,
 
@@ -35,7 +35,7 @@ const command: Command = {
 
     const user = interaction.options.getUser("user") as User;
     const action = interaction.options.getString("action") as xpType;
-    const amount = interaction.options.getNumber("amount") as number;
+    const amount = interaction.options.getNumber("value") as number;
 
     const userData : UsersModel | null = await bot.db.tables.users.getById(user.id);
     if (!userData) {

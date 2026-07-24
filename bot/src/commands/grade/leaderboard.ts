@@ -6,7 +6,7 @@ import { GradesModel } from "../../db/models/grades";
 const command: Command = {
   data: new SlashCommandBuilder()
     .setName("leaderboard")
-    .setDescription("List all members xp")
+    .setDescription("View the faction's leaderboard.")
     .setContexts(InteractionContextType.Guild) as SlashCommandBuilder,
 
   execute: async (interaction: ChatInputCommandInteraction, bot: Bot) => {

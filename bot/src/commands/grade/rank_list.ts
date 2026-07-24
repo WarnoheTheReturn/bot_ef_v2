@@ -5,8 +5,8 @@ import { Bot } from "../../types";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("grade-manage-list")
-    .setDescription("List all ranks")
+    .setName("rank-list")
+    .setDescription("List all ranks.")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setContexts(InteractionContextType.Guild) as SlashCommandBuilder,
 

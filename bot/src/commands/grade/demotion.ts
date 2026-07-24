@@ -5,18 +5,18 @@ import { Bot } from "../../types";
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("grade-user-demotion")
-    .setDescription("demote a member")
+    .setName("demote")
+    .setDescription("Demote a member.")
     .setContexts(InteractionContextType.Guild)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addUserOption((option) => option
         .setName("user")
-        .setDescription("The username of the user you want to demote")
+        .setDescription("The user you want to demote.")
         .setRequired(true)
     )
     .addRoleOption((option) => option
-        .setName("role")
-        .setDescription("The role you want to demote the user to")
+        .setName("rank")
+        .setDescription("The rank you want to demote the user to.")
         .setRequired(true)
     ) as SlashCommandBuilder,
 
@@ -24,7 +24,7 @@ const command: Command = {
     const sent = await interaction.deferReply();
 
     const user = interaction.options.getUser("user") as User;
-    const role = interaction.options.getRole("role") as Role;
+    const role = interaction.options.getRole("rank") as Role;
 
 
     const userData = await bot.db.tables.users.getById(user.id);
